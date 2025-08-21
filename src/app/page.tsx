@@ -2,6 +2,10 @@
 
 import { Section, Cell, Image, List } from "@telegram-apps/telegram-ui";
 import { useTranslations } from "next-intl";
+import InputPhone from '@/components/PhoneInput/PhoneInput'
+
+
+// import { useMask } from '@react-input/mask';
 
 import { openLink } from "@telegram-apps/sdk-react";
 
@@ -13,6 +17,11 @@ import tonSvg from "./_assets/ton.svg";
 
 export default function Home() {
   const t = useTranslations("i18n");
+
+  // const inputRef = useMask({
+  //   mask: '+7 000 000 00 00',
+
+  // })
 
   const openPDF = async () => {
     const pdfUrl =
@@ -50,12 +59,14 @@ export default function Home() {
             >
               TON Connect
             </Cell>
+            {/* <input type="text" ref={inputRef}/> */}
           </Link>
         </Section>
         <Section
           header="Application Launch Data"
           footer="These pages help developer to learn more about current launch information"
         >
+          <InputPhone/>
           <div
             style={{
               marginLeft: 20,
