@@ -2,8 +2,8 @@
 
 import { Section, Cell, Image, List } from "@telegram-apps/telegram-ui";
 import { useTranslations } from "next-intl";
-import InputPhone from '@/components/PhoneInput/PhoneInput'
-
+import InputPhone from "@/components/PhoneInput/PhoneInput";
+import { shareURL } from "@telegram-apps/sdk-react";
 
 // import { useMask } from '@react-input/mask';
 
@@ -22,6 +22,8 @@ export default function Home() {
   //   mask: '+7 000 000 00 00',
 
   // })
+
+  const text = `const description = "Иззи-бизнес\u00A0— это сообщество молодых предпринимателей\u00A0— пространство, которое вдохновляет на\u00A0старт собственного дела и\u00A0помогает уверенно развивать бизнес. Внутри —\u00A0обмен опытом и\u00A0кейсами, совместный поиск решений в\u00A0сложных ситуациях —\u00A0информация о\u00A0мерах поддержки от\u00A0сбера и\u00A0новых возможностях —\u00A0разнообразные мероприятия: от\u00A0масштабных бизнес-фестов с\u00A0тысячами единомышленников до\u00A0камерных встреч с\u00A0насыщенным нетворкингом —\u00A0а\u00A0еще онлайн конкурсы, подкасты, премия «Молодой предприниматель», обучающие программы и\u00A0акселераторы";`;
 
   const openPDF = async () => {
     const pdfUrl =
@@ -66,7 +68,7 @@ export default function Home() {
           header="Application Launch Data"
           footer="These pages help developer to learn more about current launch information"
         >
-          <InputPhone/>
+          <InputPhone />
           <div
             style={{
               marginLeft: 20,
@@ -111,7 +113,7 @@ export default function Home() {
             >
               Anchor link with target
             </a>
-            <button onClick={openPDF}>
+            <button onClick={() => shareURL("https://google.com", text)}>
               В виде текста{" "}
               <span style={{ cursor: "pointer" }}>
                 <u>ссылка</u>
